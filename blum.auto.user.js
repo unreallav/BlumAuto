@@ -25,7 +25,7 @@ let isGamePaused = false;
 
 const fs = require('fs');
 let index = false; 
-fs.readFile('https://github.com/unreallav/BlumAuto/blob/main/config.txt', 'utf8', (err, data) => {
+fs.readFile('https://raw.githubusercontent.com/unreallav/BlumAuto/refs/heads/main/config.txt', 'utf8', (err, data) => {
     if (err) {
         console.error(err);
         return;
