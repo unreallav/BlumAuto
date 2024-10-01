@@ -1,5 +1,5 @@
 
-> - **疑问联系**: [Telegram](https://t.me/unreallav)
+> - **技术支持**: [Telegram](https://t.me/unreallav)
 ---
 ## 如何运行?  
 - 1.首先在**浏览器**中安装**两个扩展** [点击下载插件1](https://chromewebstore.google.com/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe) **和** [点击下载插件2](https://chromewebstore.google.com/detail/%E6%9A%B4%E5%8A%9B%E7%8C%B4/jinjaccalgkegednnccohejagnlnfdag)
