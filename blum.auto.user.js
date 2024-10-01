@@ -30,18 +30,13 @@ fetch('https://raw.githubusercontent.com/unreallav/BlumAuto/main/config.txt')
         return response.text();
     })
     .then(data => {
-        const configIndex = parseInt(data.split('=')[1], 10); // 获取 index 值
-
-        // 根据 configIndex 设置 index
+        const configIndex = parseInt(data.split('=')[1], 10);
         if (configIndex === 1) {
-            index = true; // 设置为 true
+            index = true; 
         } else {
-            index = false; // 设置为 false
+            index = false; 
         }
-
-        // 直接判断
         console.log('配置 index:', index);
-        someFunction();
     })
     .catch(error => {
         console.error('请求错误:', error);
