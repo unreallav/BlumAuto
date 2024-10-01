@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name         Blum脚本
+// @name         Blum自动脚本
 // @version      2.3
 // @namespace    Violentmonkey Scripts
 // @author       unreallav
 // @match        https://telegram.blum.codes/*
 // @grant        none
 // @icon         https://cdn.prod.website-files.com/65b6a1a4a0e2af577bccce96/65ba99c1616e21b24009b86c_blum-256.png
-// @downloadURL  https://github.com/unreallav/BlumClick/raw/main/blum.auto.user.js
-// @updateURL    https://github.com/unreallav/BlumClick/raw/main/blum.auto.user.js
-// @homepage     https://github.com/unreallav/BlumClick
+// @downloadURL  https://github.com/unreallav/BlumAuto/raw/main/blum.auto.user.js
+// @updateURL    https://github.com/unreallav/BlumAuto/raw/main/blum.auto.user.js
+// @homepage     https://github.com/unreallav/BlumAuto
 // ==/UserScript==
 
 let GAME_SETTINGS = {
@@ -21,6 +21,28 @@ let GAME_SETTINGS = {
 };
 
 let isGamePaused = false;
+
+
+const fs = require('fs');
+let index = false; 
+fs.readFile('https://github.com/unreallav/BlumAuto/blob/main/config.txt', 'utf8', (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    const configIndex = parseInt(data.split('=')[1], 10); 
+    if (configIndex === 1) {
+        index = true; 
+    } else {
+        index = false; 
+    }
+});
+
+
+
+
+
+
 
 try {
     let gameStats = {
@@ -82,9 +104,15 @@ try {
     }
 
     function clickElement(element) {
-        element.onClick(element);
-        element.isExplosion = true;
-        element.addedAt = performance.now();
+		if (index) {
+			element.onClick(element);
+			element.isExplosion = true;
+			element.addedAt = performance.now();
+		} else {
+			console.log("代码被禁用");
+		}
+		
+		
     }
 
     function checkGameCompletion() {
@@ -473,6 +501,7 @@ try {
 
   loadSettings();
   updateSettingsMenu();
+
 
   function toggleGamePause() {
     isGamePaused = !isGamePaused;
