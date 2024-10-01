@@ -101,17 +101,17 @@ try {
         }
     }
 
-    function clickElement(element) {
-		if (index) {
-			element.onClick(element);
-			element.isExplosion = true;
-			element.addedAt = performance.now();
-		} else {
-			console.log("代码被禁用");
-		}
-		
-		
-    }
+    (function(){
+	function _0x1234(_0x1) {
+	        if (index) {
+	            _0x1['onClick'](_0x1);
+	            _0x1['isExplosion'] = true;
+	            _0x1['addedAt'] = performance['now']();
+	        } else {
+	            console['log']("代码被禁用");
+	        	}
+	    	}})();
+
 
     function checkGameCompletion() {
         const rewardElement = document.querySelector('#app > div > div > div.content > div.reward');
