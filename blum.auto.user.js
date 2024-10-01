@@ -21,28 +21,26 @@ let GAME_SETTINGS = {
 };
 
 let isGamePaused = false;
-
-
-const fs = require('fs');
+const https = require('https');
 let index = false; 
-fs.readFile('https://raw.githubusercontent.com/unreallav/BlumAuto/refs/heads/main/config.txt', 'utf8', (err, data) => {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    const configIndex = parseInt(data.split('=')[1], 10); 
-    if (configIndex === 1) {
-        index = true; 
-    } else {
-        index = false; 
-    }
+https.get('https://raw.githubusercontent.com/unreallav/BlumAuto/main/config.txt', (res) => {
+    let data = '';
+    res.on('data', (chunk) => {
+        data += chunk;
+    });
+
+    res.on('end', () => {
+        const configIndex = parseInt(data.split('=')[1], 10);
+        if (configIndex === 1) {
+            index = true;
+        } else {
+            index = false;
+        }
+        console.log('配置 index:', index);
+    });
+}).on('error', (err) => {
+    console.error('请求错误:', err);
 });
-
-
-
-
-
-
 
 try {
     let gameStats = {
