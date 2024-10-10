@@ -21,7 +21,7 @@ let GAME_SETTINGS = {
 };
 
 let isGamePaused = false;
-let index = false; 
+let index = ture; 
 fetch('https://raw.githubusercontent.com/unreallav/BlumAuto/main/config.txt')
     .then(response => {
         if (!response.ok) {
